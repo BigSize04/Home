@@ -1,0 +1,299 @@
+#include <iostream>
+using namespace std;
+#include <iomanip>
+int main()
+{
+    cout << "Решение 1 задание";
+    setlocale(0, "ru");
+    int seconds;
+    cout << "Vvedite kolichestvo secund: ";
+    cin >> seconds;
+    int days = seconds / 86400;
+    cout << "Vvedite kolichestvo day: ";
+    seconds %= 86400;
+    int hours = seconds / 3600;
+    cout << "Vvedite kolichestvo chasov: ";
+    seconds %= 3600;
+    int minutes = seconds / 60;
+    cout << "Vvedite kolichestvo minut: ";
+    seconds %= 60;
+    cout << days << " дн, " << hours << " ч, " << minutes << " мин, " << seconds << " сек\n";
+
+    cout << "Решение 2 задание";
+    setlocale(0, "ru");
+    int days, hours, minutes, seconds;
+    cout << "Введите количество дней: ";
+    cin >> days;
+    cout << "Введите количество часов: ";
+    cin >> hours;
+    cout << "Введите количество минут: ";
+    cin >> minutes;
+    cout << "Введите количество секунд: ";
+    cin >> seconds;
+    int totalSeconds = days * 86400 + hours * 3600 + minutes * 60 + seconds;
+    cout << "Общее количество секунд: " << totalSeconds << endl;
+
+    cout << "Решение 3 задание";
+    setlocale(0, "ru");
+
+    double distance, time, speed;
+    cout << "Введите расстояние до аэропорта (в километрах): ";
+    cin >> distance;
+    cout << "Введите время, за которое нужно доехать (в часах): ";
+    cin >> time;
+
+    if (time > 0) {
+        speed = distance / time;
+        cout << "Необходимая скорость: " << speed << " км/ч" << endl;
+    }
+    else {
+        cout << "Время должно быть больше нуля!" << endl;
+    }
+
+    cout << "Решение 4 задание";
+    setlocale(0, "ru");
+
+    int h1, m1, s1, h2, m2, s2;
+    cout << "Введите время начала разговора (часы минуты секунды): ";
+    cin >> h1 >> m1 >> s1;
+    cout << "Введите время окончания разговора (часы минуты секунды): ";
+    cin >> h2 >> m2 >> s2;
+
+    int startSeconds = h1 * 3600 + m1 * 60 + s1;
+    int endSeconds = h2 * 3600 + m2 * 60 + s2;
+
+    int duration = endSeconds - startSeconds;
+
+    if (duration <= 0) {
+        cout << "Ошибка: время окончания должно быть позже начала." << endl;
+    }
+    else {
+        int minutes = (duration + 59) / 60; // округляем в большую сторону //
+        double cost = minutes * 0.3;
+        cout << "Длительность разговора: " << minutes << " мин" << endl;
+        cout << "Стоимость разговора: " << cost << " грн" << endl;
+    }
+
+    cout << "Решение 5 задание"; 
+    setlocale(0, "ru");
+
+    double uah;
+    double usdRate, eurRate, rubRate;
+
+    cout << "Введите сумму в гривнах: ";
+    cin >> uah;
+    cout << "Введите курс доллара: ";
+    cin >> usdRate;
+    cout << "Введите курс евро: ";
+    cin >> eurRate;
+    cout << "Введите курс рубля: ";
+    cin >> rubRate;
+
+    int dollars = uah / usdRate;
+    uah -= dollars * usdRate;
+
+    int euros = uah / eurRate;
+    uah -= euros * eurRate;
+
+    int rubles = uah / rubRate;
+    uah -= rubles * rubRate;
+
+    cout << "Вы можете купить:\n";
+    cout << dollars << " долларов\n";
+    cout << euros << " евро\n";
+    cout << rubles << " рублей\n";
+    cout.precision(2);
+    cout << "Сдача: " << fixed << uah << " грн" << endl;
+
+    cout << "Решение 6 задание";
+    setlocale(0, "ru");
+
+    int elapsedSeconds;
+    cout << "Введите количество секунд, прошедших с начала рабочего дня: ";
+    cin >> elapsedSeconds;
+
+    int workdaySeconds = 8 * 3600;
+    int remainingSeconds = workdaySeconds - elapsedSeconds;
+
+    if (remainingSeconds <= 0) {
+        cout << "Рабочий день уже закончился!" << endl;
+    }
+    else {
+        int remainingHours = remainingSeconds / 3600;
+        cout << "Осталось работать: " << remainingHours << " час(ов)" << endl;
+
+        cout << "Решение 6 задание";
+        setlocale(0, "ru");
+
+        int elapsedSeconds;
+        cout << "Введите количество секунд, прошедших с начала рабочего дня: ";
+        cin >> elapsedSeconds;
+
+        int workdaySeconds = 8 * 3600;
+        int remainingSeconds = workdaySeconds - elapsedSeconds;
+
+        if (remainingSeconds <= 0) {
+            cout << "Рабочий день уже закончился!" << endl;
+        }
+        else {
+            int remainingHours = remainingSeconds / 3600;
+            cout << "Осталось работать: " << remainingHours << " час(ов)" << endl;
+        }
+
+        cout << "Решение 7 задание";
+        setlocale(0, "ru");
+
+        double price, discountPercent;
+        int quantity;
+
+        cout << "Введите цену одного ноутбука: ";
+        cin >> price;
+        cout << "Введите количество ноутбуков: ";
+        cin >> quantity;
+        cout << "Введите процент скидки: ";
+        cin >> discountPercent;
+
+        double total = price * quantity;
+        double discount = total * discountPercent / 100.0;
+        double finalPrice = total - discount;
+
+        cout.precision(2);
+        cout << fixed;
+        cout << "Общая сумма заказа со скидкой: " << finalPrice << " грн" << endl;
+
+        cout << "Решение 8 задание";
+        setlocale(0, "ru");
+
+        double salesAmount;
+        cout << "Введите общую сумму сделок менеджера за месяц: ";
+        cin >> salesAmount;
+
+        double salary = 100 + salesAmount * 0.05;
+
+        cout.precision(2);
+        cout << fixed;
+        cout << "Итоговая зарплата менеджера: " << salary << " грн" << endl;
+
+        cout << "Решение 9 задание";
+        setlocale(0, "ru");
+
+        double sizeGB, speedBps;
+        cout << "Введите размер фильма (в ГБ): ";
+        cin >> sizeGB;
+        cout << "Введите скорость интернета (в бит/сек): ";
+        cin >> speedBps;
+
+        double totalBits = sizeGB * 1024 * 1024 * 1024 * 8; // переводим в биты
+        int totalSeconds = totalBits / speedBps;
+
+        int hours = totalSeconds / 3600;
+        totalSeconds %= 3600;
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+
+        cout << "Фильм скачается за: " << hours << " ч, "
+            << minutes << " мин, " << seconds << " сек" << endl;
+
+        cout << "Решение 10  задание";
+        setlocale(0, "ru");
+
+        double flashGB;
+        cout << "Введите объём флешки (в ГБ): ";
+        cin >> flashGB;
+
+        int flashMB = flashGB * 1024;
+        int films = flashMB / 760;
+
+        cout << "На флешку поместится " << films << " фильм(ов) размером 760 МБ." << endl;
+
+        cout << "Решение 11  задание";
+        setlocale(0, "ru");
+
+        double number;
+        cout << "Введите дробное число: ";
+        cin >> number;
+
+        cout << "Округлённое число: " << fixed << setprecision(2) << number << endl;
+
+        cout << "Решение 12  задание";
+        setlocale(0, "ru");
+
+        int passed, debtors;
+        cout << "Введите количество студентов, сдавших экзамен: ";
+        cin >> passed;
+        cout << "Введите количество должников: ";
+        cin >> debtors;
+
+        int total = passed + debtors;
+
+        if (total == 0) {
+            cout << "Общее количество студентов должно быть больше 0." << endl;
+        }
+        else {
+            double percentPassed = (double)passed / total * 100;
+            double percentDebtors = (double)debtors / total * 100;
+
+            cout << fixed << setprecision(2);
+            cout << "Сдавшие: " << percentPassed << "%\n";
+            cout << "Должники: " << percentDebtors << "%" << endl;
+        }
+        
+        cout << "Решение 13  задание";
+        setlocale(0, "ru");
+
+        int elapsedSeconds;
+        cout << "Введите количество секунд с начала дня: ";
+        cin >> elapsedSeconds;
+
+        int totalSeconds = 86400;
+
+        if (elapsedSeconds >= totalSeconds) {
+            cout << "До полуночи осталось: 0 ч, 0 мин, 0 сек" << endl;
+        }
+        else {
+            int remaining = totalSeconds - elapsedSeconds;
+            int hours = remaining / 3600;
+            remaining %= 3600;
+            int minutes = remaining / 60;
+            int seconds = remaining % 60;
+
+            cout << "До полуночи осталось: "
+                << hours << " ч, "
+                << minutes << " мин, "
+                << seconds << " сек" << endl;
+        }
+
+        cout << "Решение 14  задание";
+        setlocale(0, "ru");
+
+        double movieGB;
+        cout << "Введите размер фильма (в ГБ): ";
+        cin >> movieGB;
+
+        double movieMB = movieGB * 1024;
+        int diskettes = ceil(movieMB / 1.44); // округляем вверх
+
+        cout << "Для переноса фильма потребуется " << diskettes << " дискет(ы)." << endl;
+
+        cout << "Решение 15  задание";
+        setlocale(0, "ru");
+
+        double amount, rate;
+        int months;
+
+        cout << "Введите сумму вклада (в грн): ";
+        cin >> amount;
+        cout << "Введите срок вклада (в месяцах): ";
+        cin >> months;
+        cout << "Введите годовую процентную ставку: ";
+        cin >> rate;
+
+        double interest = amount * (rate / 100.0) * (months / 12.0);
+        double total = amount + interest;
+
+        cout << fixed << setprecision(2);
+        cout << "Итоговая сумма через " << months << " мес: " << total << " грн" << endl;
+
+
+    return 0;
+}
